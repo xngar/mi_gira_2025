@@ -5,7 +5,6 @@ import Formulario from "@/components/Formulario";
 import Menu from "@/components/Menu";
 import Slider from "@/components/Slider";
 import Video from "@/components/Video";
-import Image from "next/image";
 
 export default function Home() {
   return (

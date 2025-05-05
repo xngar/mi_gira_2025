@@ -1,6 +1,5 @@
 // components/Beneficio_info.tsx
 import React from "react";
-import { LucideIcon } from "lucide-react"; // Importa el tipo LucideIcon
 
 interface BeneficioInfoProps {
   icono: React.ReactNode;
