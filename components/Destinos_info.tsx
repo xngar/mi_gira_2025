@@ -22,7 +22,7 @@ const Destinos_info = () => {
         />
       </div>
       <div className="flex flex-col justify-center items-center p-6">
-        <button className="bg-yellow-600 p-3 w-[70%] rounded-2xl">
+        <button className="bg-yellow-400 p-3 w-[70%] rounded-2xl">
           Ver mas
         </button>
       </div>

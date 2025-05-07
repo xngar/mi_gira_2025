@@ -6,7 +6,7 @@ import { CircleDollarSign } from "lucide-react";
 
 const Beneficios: React.FC = () => {
   return (
-    <div className=" bg-white flex p-10 gap-10">
+    <div className=" bg-white  p-10 gap-10 md:flex-col lg:flex-row sm:flex-col flex-row lg:flex  ">
       <Beneficio_info
         icono={
           <ShieldCheck size={100} color="#58167D" aria-label="seguridad" />
