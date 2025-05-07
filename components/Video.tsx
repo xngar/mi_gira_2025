@@ -2,9 +2,9 @@ import React from "react";
 
 const Video = () => {
   return (
-    <div className="h-[600px] bg-blue-700">
-      <div className="bg-white h-[150px] flex items-center justify-center flex-col">
-        <h2 className="text-[50px] text-[#58167D]">Giras de Estudio</h2>
+    <div className=" bg-blue-700 ">
+      <div className="bg-white flex items-center justify-center flex-col p-4 text-center">
+        <h2 className="text-[60px] text-[#58167D]">Giras de Estudio</h2>
         <h3 className="text-[30px] text-[#58167D]">
           La mejor experiencia para disfrutar con tu curso
         </h3>

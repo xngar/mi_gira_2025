@@ -12,7 +12,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-[#58167D] p-14 text-white flex flex-col  justify-center items-center pb-4 ">
-      <div className="flex justify-around w-full">
+      <div className="flex flex-col gap-7 md:flex-row md:justify-around w-full justify-center items-center">
         <div>
           <Image src="/gira.png" width={120} height={120} alt="logo" />
         </div>

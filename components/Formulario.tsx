@@ -4,7 +4,7 @@ import React from "react";
 
 const Formulario: React.FC = () => {
   return (
-    <div className="bg-[#58167D] flex justify-center items-center min-h-screen">
+    <div className="bg-[#58167D] flex justify-center items-center min-h-screen p-4 pt-12">
       <form
         className="bg-white p-10 rounded-2xl flex w-[1000px] gap-10"
         onSubmit={async (e) => {
@@ -18,12 +18,12 @@ const Formulario: React.FC = () => {
           console.log(data);
         }}
       >
-        <div className="w-[70%]">
-          <h2 className="text-[40px] text-[#58167D]">
+        <div className="w-[100]">
+          <h2 className="text-[40px] text-[#58167D] text-center">
             ¿Necesita más información?
           </h2>
-          <h3 className="text-[30px] pb-5">Contáctanos!</h3>
-          <label className="block mb-4" htmlFor="nombre">
+          <h3 className="text-[30px] pb-5 text-center">Contáctanos!</h3>
+          <label className="block mb-4 " htmlFor="nombre">
             <p className="mb-2">Nombre</p>
             <input
               className="estilo-botones"
@@ -80,7 +80,7 @@ const Formulario: React.FC = () => {
             Enviar
           </button>
         </div>
-        <div className="relative w-[40%]">
+        <div className="relative w-[40%] hidden lg:block">
           <Image
             src="/jovenes.jpg"
             alt="jovenes"
