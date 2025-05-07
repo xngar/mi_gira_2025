@@ -1,5 +1,7 @@
 // components/Beneficio_info.tsx
+"use client";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface BeneficioInfoProps {
   icono: React.ReactNode;
@@ -14,7 +16,10 @@ const Beneficio_info: React.FC<BeneficioInfoProps> = ({
 }) => {
   return (
     <div className="flex flex-col justify-center items-center gap-7">
-      <div>{icono}</div> {/* Renderiza el icono aquí */}
+      <motion.div whileHover={{ scale: 1.2, marginTop: -20 }}>
+        {icono}
+      </motion.div>{" "}
+      {/* Renderiza el icono aquí */}
       <div className="flex flex-col justify-center items-center">
         <h2 className="text-[30px] text-[#58167D] text-center">{titulo}</h2>
         <h3 className="text-[18px] text-gray-600 ">{descripcion}</h3>

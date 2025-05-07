@@ -18,7 +18,7 @@ const Beneficios: React.FC = () => {
         icono={
           <CircleDollarSign size={100} color="#58167D" aria-label="seguridad" />
         }
-        titulo="Beneficios Pro fondos"
+        titulo="Beneficios"
         descripcion="Apoyamos a cada curso a reunir fondos."
       />
       <Beneficio_info

@@ -11,6 +11,7 @@ import {
 const Menu = () => {
   return (
     <div className="w-full  bg-[#58167D] flex justify-between p-8 pt-5 items-center ">
+      {/* menu mobile */}
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger className="text-white border-2 border-white p-3 ">
@@ -31,12 +32,13 @@ const Menu = () => {
           </SheetContent>
         </Sheet>
       </div>
+      {/* fin menu mobile */}
       <div className="lg:w-[200px]">
         <Image src="/gira.png" width={70} height={70} alt="logo" />
       </div>
       <div className="flex justify-around gap-[100px] ">
         <div className=" w-[600px] ">
-          <ul className="hidden lg:flex gap-3.5 justify-around text-white  ">
+          <ul className="hidden md:flex gap-3.5 justify-around text-white  ">
             <li className="animacion-botones ">Home</li>
             <li className="animacion-botones">Paquetes</li>
             <li className="animacion-botones">Lujos</li>
@@ -46,8 +48,8 @@ const Menu = () => {
         </div>
         {/* menu movil */}
 
-        <div className="hidden lg:block">
-          <p className="">
+        <div className="hidden md:flex items-center justify-baseline">
+          <p className="text-white">
             Viernes, 02 de Mayo del 2025 / contado: 950 - crédito: 960
           </p>
         </div>

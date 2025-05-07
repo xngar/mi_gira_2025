@@ -85,7 +85,7 @@ body {
 }
 
 .animacion-botones {
-  @apply hover:bg-white hover:text-[#58167D] transition-all duration-300 hover:rounded-md rounded-md p-3 hover:p-3 font-bold tracking-widest
+  @apply hover:bg-white hover:text-[#58167D] transition-all duration-300 hover:rounded-md rounded-md p-3 hover:p-3 font-medium tracking-widest
 }
 
 .estilo-botones{
