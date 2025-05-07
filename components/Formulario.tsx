@@ -18,7 +18,7 @@ const Formulario: React.FC = () => {
           console.log(data);
         }}
       >
-        <div className="w-[100]">
+        <div className="w-[100%]">
           <h2 className="text-[40px] text-[#58167D] text-center">
             ¿Necesita más información?
           </h2>
