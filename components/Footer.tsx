@@ -30,7 +30,7 @@ const Footer = () => {
                     <br></br>
                     Incorporada a la Asociación Chilena de Turismo ACHET,
                     SERNATUR y con Sello de Calidad Turística. Por medio de
-                    nuestro Departamento Estudiantil “Mi Gira”, en alianza con
+                    nuestro Departamento Estudiantil Mi Gira, en alianza con
                     nuestros representantes con más de 30 años de experiencia en
                     realizar viajes de estudios alrededor del mundo, entregamos
                     diversas alternativas de viajes a nivel nacional como
@@ -94,7 +94,7 @@ const Footer = () => {
                 <DialogHeader>
                   <DialogTitle>Calidad de Servicio</DialogTitle>
                   <DialogDescription className="text-justify">
-                    Alternativa de hoteles 3* 4* y 5*, y de prestigio en cada
+                    Alternativa de hoteles 3, 4 y 5, y de prestigio en cada
                     destino.
                     <br></br> Transporte aéreo y terrestre de primer orden a
                     nivel nacional e internacional. Representantes exclusivos en
@@ -124,7 +124,7 @@ const Footer = () => {
                       <li>Pago vía webpay </li>
                     </ul>
                     Cada año, más colegios nos prefieren. Vive la experiencia:
-                    "MI GIRA CON AMERICAN TRAVEL TOUR".
+                    MI GIRA CON AMERICAN TRAVEL TOUR.
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
