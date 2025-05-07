@@ -85,11 +85,11 @@ body {
 }
 
 .animacion-botones {
-  @apply hover:bg-white hover:text-[#58167D] transition-all duration-300 hover:rounded-md rounded-md p-3 hover:p-3 font-bold
+  @apply hover:bg-white hover:text-[#58167D] transition-all duration-300 hover:rounded-md rounded-md p-3 hover:p-3 font-bold tracking-widest
 }
 
 .estilo-botones{
-  @apply p-2 rounded-md w-full border-2 border-gray-400
+  @apply p-2 rounded-md w-full border-2 border-gray-400 
 }
 
 .dark {
