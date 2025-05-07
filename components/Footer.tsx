@@ -56,7 +56,7 @@ const Footer = () => {
                     apropiada al destino elegido:
                     <br></br>
                     <br></br>
-                    <ul className="">
+                    <ul>
                       <li>Seguro de accidente</li>
                       <li>Asistencia medica</li>
                       <li>Medicamentos</li>
@@ -116,7 +116,7 @@ const Footer = () => {
                     Razón Social: American Travel Tour Ltda. Rut: 76.966.970 – 1
                     Cuenta Corriente Banco Santander en Pesos N° 61-55539-0
                     Cuenta Corriente Banco Santander en Dólares No 5100067341
-                    <ul className="">
+                    <ul>
                       <li>Pago al contado vía transferencia electrónica</li>
                       <li>Pago al contado vía depósito en dólar</li>
                       <li>Pago con cheques</li>
