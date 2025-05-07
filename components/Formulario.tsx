@@ -80,7 +80,7 @@ const Formulario: React.FC = () => {
             Enviar
           </button>
         </div>
-        <div className="relative w-[40%] hidden lg:block">
+        <div className="relative md:w-[40%] hidden md:block">
           <Image
             src="/jovenes.jpg"
             alt="jovenes"
