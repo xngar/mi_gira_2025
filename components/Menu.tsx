@@ -20,7 +20,7 @@ const Menu = () => {
   return (
     <div className="w-full  bg-[#58167D] flex justify-between p-8 pt-5 items-center ">
       {/* menu mobile */}
-      <div className="md:hidden">
+      <div className="md:hidden flex">
         <Sheet>
           <SheetTrigger className="text-white border-2 border-white p-3 ">
             <AlignJustify />
@@ -40,6 +40,13 @@ const Menu = () => {
           </SheetContent>
         </Sheet>
       </div>
+      <Image
+        src="/gira.png"
+        width={70}
+        height={70}
+        alt="logo"
+        className=" md:hidden right-10 absolute"
+      />
       {/* fin menu mobile */}
       <div className="lg:w-[200px]">
         <Image src="/gira.png" width={70} height={70} alt="logo" />
