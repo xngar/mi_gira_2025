@@ -36,7 +36,7 @@ const Formulario: React.FC = () => {
             />
           </label>
           <label className="block mb-4" htmlFor="telefono">
-            <p className="mb-2">Telefono</p>
+            <p className="mb-2">Teléfono</p>
             <input
               className="estilo-botones"
               type="tel"
@@ -49,7 +49,7 @@ const Formulario: React.FC = () => {
             />
           </label>
           <label className="block mb-4" htmlFor="direccion">
-            <p className="mb-2">Direccion</p>
+            <p className="mb-2">Colegio</p>
             <input
               className="estilo-botones"
               type="text"
@@ -72,6 +72,17 @@ const Formulario: React.FC = () => {
               title="Este campo es obligatorio"
             />
           </label>
+          <label className="block mb-4" htmlFor="correo">
+            <p className="mb-2">Mensaje</p>
+            <textarea
+              className="estilo-botones"
+              name="correo"
+              id="correo"
+              required
+              placeholder="todas sus consultas aquí..."
+              title="Este campo es obligatorio"
+            />
+          </label>
 
           <button
             className="bg-[#58167D] p-2 rounded-md w-full text-white"
@@ -80,7 +91,7 @@ const Formulario: React.FC = () => {
             Enviar
           </button>
         </div>
-        <div className="relative md:w-[40%] hidden md:block">
+        <div className="relative md:w-[80%] hidden md:block">
           <Image
             src="/jovenes.jpg"
             alt="jovenes"

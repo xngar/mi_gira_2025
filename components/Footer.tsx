@@ -152,7 +152,12 @@ const Footer = () => {
         <p>© 2025: American Travel Tour</p>
       </div>
       <div>
-        <p>Sitio desarrollado por UP Code</p>
+        <p className="text-xs">
+          Sitio desarrollado por{" "}
+          <a href="www.upcode.cl" target="_blank">
+            UP Code
+          </a>
+        </p>
       </div>
     </footer>
   );
