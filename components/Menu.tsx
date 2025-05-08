@@ -6,7 +6,10 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTrigger,
+  SheetTitle,
 } from "@/components/ui/sheet";
+
+import { AlignJustify } from "lucide-react";
 
 const Menu = () => {
   return (
@@ -15,11 +18,11 @@ const Menu = () => {
       <div className="md:hidden">
         <Sheet>
           <SheetTrigger className="text-white border-2 border-white p-3 ">
-            MENÚ
+            <AlignJustify />
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              {/* <SheetTitle>Are you absolutely sure?</SheetTitle> */}
+              <SheetTitle></SheetTitle>
 
               <SheetDescription>
                 <li className="animacion-botones">Home</li>
