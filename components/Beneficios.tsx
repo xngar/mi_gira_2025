@@ -8,7 +8,8 @@ import { ThumbsUp } from "lucide-react";
 
 const Beneficios: React.FC = () => {
   return (
-    <div className=" bg-white  p-10 md:pl-30 md:pr-30 gap-10 md:flex-col lg:flex-row sm:flex-col flex-row lg:flex  ">
+    // <div className=" bg-white  p-10 md:pl-30 md:pr-30 gap-10 md:flex-col lg:flex-row sm:flex-col flex-row lg:flex  "></div>
+    <div className=" bg-white  grid grid-col-1 lg:grid-cols-4 md:grid-cols-2 gap-10 p-25  ">
       <Beneficio_info
         icono={<ThumbsUp size={100} color="#58167D" aria-label="garantia" />}
         titulo="Garantía"

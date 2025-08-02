@@ -18,13 +18,21 @@ import { Plane } from "lucide-react";
 
 const Menu = () => {
   return (
-    <div className="w-full  bg-[#58167D] flex justify-between p-8 pt-5 items-center ">
+    <div className="w-full lg:w-full  bg-[#58167D] flex   p-5 pt-5 items-center h-[65px] sm:pl-20 pl-10 pr-10 sm:pr-20 ">
       {/* menu mobile */}
-      <div className="md:hidden flex">
+      <div className="block sm:hidden ">
         <Sheet>
-          <SheetTrigger className="text-white border-2 border-white p-3 ">
-            <AlignJustify />
-          </SheetTrigger>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <SheetTrigger className="text-white border-1 border-white p-1">
+              <AlignJustify style={{ width: "15px", height: "15px" }} />
+            </SheetTrigger>
+          </div>
           <SheetContent>
             <SheetHeader>
               <SheetTitle></SheetTitle>
@@ -40,19 +48,22 @@ const Menu = () => {
           </SheetContent>
         </Sheet>
       </div>
-      <Image
-        src="/gira.png"
-        width={70}
-        height={70}
-        alt="logo"
-        className=" md:hidden right-10 absolute"
-      />
+      <div>
+        <Image
+          src="/gira.png"
+          width={50}
+          height={50}
+          alt="logo"
+          className="md:block lg:hidden  block absolute top-3 right-8 sm:top-3 sm:right-8 md:top-4 md:left-6 md:w-[40px]"
+        />
+      </div>
+
       {/* fin menu mobile */}
-      <div className="lg:w-[200px]">
-        <Image src="/gira.png" width={70} height={70} alt="logo" />
+      <div className="lg:w-[30%] md:hidden lg:block hidden">
+        <Image src="/gira.png" width={50} height={50} alt="logo" />
       </div>
       <div className="flex justify-around gap-[100px] ">
-        <div className=" w-[600px] ">
+        <div className=" w-[60%] ">
           <ul className="hidden md:flex gap-3.5 justify-around text-white  ">
             <li className="animacion-botones ">
               <span>
@@ -88,8 +99,8 @@ const Menu = () => {
         </div>
         {/* menu movil */}
 
-        <div className="hidden md:flex items-center justify-baseline">
-          <p className="text-white">
+        <div className="hidden md:flex items-center justify-baseline w-[35%]">
+          <p className="text-white text-[12px] ">
             Viernes, 02 de Mayo del 2025 / contado: 950 - crédito: 960
           </p>
         </div>
