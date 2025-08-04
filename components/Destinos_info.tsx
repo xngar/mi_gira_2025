@@ -9,11 +9,11 @@ import { Hotel } from "lucide-react";
 import { MapPin } from "lucide-react";
 
 interface Props {
-  hotel: string;
-  destino: string;
-  precio: string;
-  dia: string;
-  noches: string;
+  hotel?: string;
+  destino?: string;
+  precio?: string;
+  dia?: string;
+  noches?: string;
 }
 
 const Destinos_info = ({ hotel, destino, precio, dia, noches }: Props) => {
