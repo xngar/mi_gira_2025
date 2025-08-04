@@ -16,7 +16,7 @@ interface Props {
   noches?: string;
 }
 
-const Destinos_info = ({ hotel, destino, precio, dia, noches }: Props) => {
+const Destinos_info = () => {
   return (
     <div className="w-full bg-whites rounded-2xl shadow-2xl">
       {/* Se crea un contenedor con la clase relative para que el contenido
