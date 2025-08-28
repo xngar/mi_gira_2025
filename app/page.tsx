@@ -1,8 +1,8 @@
 import Beneficios from "@/components/Beneficios";
 import Destinos from "@/components/Destinos";
-import Footer from "@/components/Footer";
+
 import Formulario from "@/components/Formulario";
-import Menu from "@/components/Menu";
+
 import Slider from "@/components/Slider";
 import Video from "@/components/Video";
 

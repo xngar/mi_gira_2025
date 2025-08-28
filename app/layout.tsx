@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
@@ -34,7 +33,7 @@ export default function RootLayout({
   const logeo = async () => {
     const _credencial: Credentials = {
       Username: `${process.env.NEXT_PUBLIC_API_USERNAME}`,
-      Password: `${process.env.NEXT_PUBLIC_API_PASSWORD}`
+      Password: `${process.env.NEXT_PUBLIC_API_PASSWORD}`,
     };
 
     const response = await Login(_credencial);
