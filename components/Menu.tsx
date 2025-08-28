@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -9,14 +9,44 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 
+import { getCookie } from "cookies-next";
+
 import { AlignJustify } from "lucide-react";
 import { Ship } from "lucide-react";
 import { Sparkles } from "lucide-react";
 import { Luggage } from "lucide-react";
 import { Headset } from "lucide-react";
 import { Plane } from "lucide-react";
+import { Exchange } from "@/app/api/Services";
+
+const token = getCookie("Token") as string;
+
+type TypeExchange = {
+  Id: number;
+  FechaDesde: Date;
+  FechaHasta: Date;
+  CambioContado: number;
+  CambioCredito: number;
+};
 
 const Menu = () => {
+  const [cambio, setCambio] = useState<TypeExchange | null>(null);
+
+  const exChange = async (token: string) => {
+    try {
+      const response = await Exchange(token);
+      console.log(response, "response del exchange");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (token) {
+      exChange(token);
+    }
+  }, []);
+
   return (
     <div className="w-full lg:w-full  bg-[#58167D] flex   p-5 pt-5 items-center h-[65px] sm:pl-20 pl-10 pr-10 sm:pr-20 ">
       {/* menu mobile */}

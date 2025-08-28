@@ -7,6 +7,7 @@ import { Sun } from "lucide-react";
 import { Moon } from "lucide-react";
 import { Hotel } from "lucide-react";
 import { MapPin } from "lucide-react";
+import Link from "next/link";
 
 // interface Props {
 //   hotel?: string;
@@ -63,7 +64,10 @@ const Destinos_info = () => {
         </p>
         <p className="pb-4">Valor por 2 personas</p>
         <button className="bg-yellow-400 p-3 w-[50 %] sm:w-[40%] rounded-full self-end hover:bg-amber-600 transition-all duration-150 cursor-pointer flex justify-center">
-          <span className="font-semibold">Ver detalles</span> <ChevronRight />
+          <Link href="/detalle-programa" className="font-semibold">
+            Ver detalles
+          </Link>{" "}
+          <ChevronRight />
         </button>
       </div>
     </div>

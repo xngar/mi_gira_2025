@@ -9,13 +9,13 @@ import Video from "@/components/Video";
 export default function Home() {
   return (
     <div className="">
-      <Menu />
+      {/* <Menu /> */}
       <Slider />
       <Video />
       <Beneficios />
       <Destinos />
       <Formulario />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
