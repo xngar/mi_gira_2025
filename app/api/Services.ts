@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ApiResponse, ApiResponseExchange, Credentials } from "../interfaces/interfaces";
+import { ApiResponse, ApiResponseExchange, Credentials, ResponseExchange } from "../interfaces/interfaces";
 
 export const Login = async (credentials:Credentials):Promise<ApiResponse<string>> => {
     try{
@@ -17,15 +17,9 @@ export const Login = async (credentials:Credentials):Promise<ApiResponse<string>
       }
 };
 
-type ResponseExchange = {
-  Id:number;
-  FechaDesde:Date;
-  FechaHasta:Date;
-  CambioContado:number;
-  CambioCredito: number;
-};
 
-export const Exchange = async (token:string) => {
+
+export const Exchange = async (token:string): Promise<ResponseExchange> => {
   try {
     const EqualityFilter = {
       Take: 1,
@@ -34,14 +28,12 @@ export const Exchange = async (token:string) => {
    
     const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/Parameters/Valores`, EqualityFilter, {
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token.trim()}`,
             'Content-Type': 'application/json'
         }
     });
-    
-    console.log('RESULT API:', result)
-    const response = await result.data;
-    return response?.data;
+    const response = await result.data.entities[0] as ResponseExchange;
+    return response;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       console.error('Axios error:', error.response?.data || error.message);

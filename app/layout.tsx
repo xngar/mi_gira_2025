@@ -33,8 +33,8 @@ export default function RootLayout({
 }>) {
   const logeo = async () => {
     const _credencial: Credentials = {
-      Username: process.env.NEXT_PUBLIC_API_USERNAME || "admin",
-      Password: process.env.NEXT_PUBLIC_API_PASSWORD || "test",
+      Username: `${process.env.NEXT_PUBLIC_API_USERNAME}`,
+      Password: `${process.env.NEXT_PUBLIC_API_PASSWORD}`
     };
 
     const response = await Login(_credencial);
