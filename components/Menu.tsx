@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import {
@@ -21,16 +22,6 @@ import { Exchange } from "@/app/api/Services";
 import { ResponseExchange } from "@/app/interfaces/interfaces";
 
 const token = getCookie("Token") as string;
-
-type TypeExchange = {
-  CambioContado:number;
-CambioCredito:number;
-DateUp:string;
-FechaDesde:string;
-FechaHasta:string;
-Id:number;
-UserId:number;
-};
 
 const Menu = () => {
   const [cambio, setCambio] = useState<ResponseExchange | undefined>({
