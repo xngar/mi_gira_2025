@@ -1,15 +1,9 @@
 'use client'
 import Beneficios from "@/components/Beneficios";
 import Destinos from "@/components/Destinos";
-<<<<<<< HEAD
 //import Footer from "@/components/Footer";
 import Formulario from "@/components/Formulario";
 //import Menu from "@/components/Menu";
-=======
-
-import Formulario from "@/components/Formulario";
-
->>>>>>> d1c1083bc17743dfa3e65967429a7359ee273a3b
 import Slider from "@/components/Slider";
 import Video from "@/components/Video";
 import { getCookie, setCookie } from "cookies-next";
