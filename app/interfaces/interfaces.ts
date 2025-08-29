@@ -17,7 +17,10 @@ export interface Credentials{
     statusCode:number;
     value:T;
   }
-
+export interface ApiResponseAuth{
+	statusCode:number;
+	value:string;
+}
 
   export interface ApiResponseExchange<T>{
 	data:T;

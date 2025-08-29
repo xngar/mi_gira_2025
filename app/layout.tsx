@@ -1,14 +1,16 @@
+
 "use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import { Credentials } from "./interfaces/interfaces";
+import { Login } from "./api/Services";
 import { setCookie, getCookie } from "cookies-next";
 import { useEffect } from "react";
-import { Login } from "./api/Services";
-import { Credentials } from "./interfaces/interfaces";
 
-const token = getCookie("Token") as string;
+
+const token = getCookie('Token') as string;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +32,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   const logeo = async () => {
     const _credencial: Credentials = {
       Username: `${process.env.NEXT_PUBLIC_API_USERNAME}`,

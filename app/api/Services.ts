@@ -1,10 +1,11 @@
 import axios from "axios"
-import { ApiResponse, Credentials, ResponseExchange } from "../interfaces/interfaces";
 
-export const Login = async (credentials:Credentials):Promise<ApiResponse<string>> => {
+import { ApiResponseAuth, Credentials, ResponseExchange } from "../interfaces/interfaces";
+
+export const Login = async (credentials:Credentials):Promise<ApiResponseAuth> => {
     try{
         const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/Auth`, credentials);
-        const response = await result.data as ApiResponse<string>;
+        const response = await result.data as ApiResponseAuth;
         return response;
     } catch (error) {
         if (axios.isAxiosError(error)) {
