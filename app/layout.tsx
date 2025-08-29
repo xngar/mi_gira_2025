@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+"use client";
+>>>>>>> d1c1083bc17743dfa3e65967429a7359ee273a3b
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
@@ -23,7 +27,31 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+<<<<<<< HEAD
  
+=======
+  const logeo = async () => {
+    const _credencial: Credentials = {
+      Username: `${process.env.NEXT_PUBLIC_API_USERNAME}`,
+      Password: `${process.env.NEXT_PUBLIC_API_PASSWORD}`,
+    };
+
+    const response = await Login(_credencial);
+    if (response.statusCode === 200) {
+      setCookie("Token", response.value);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (!token) {
+        // Redirigir a la página de inicio de sesión
+        logeo();
+      }
+    }
+  }, []);
+
+>>>>>>> d1c1083bc17743dfa3e65967429a7359ee273a3b
   return (
     <html lang="en">
       <Menu />

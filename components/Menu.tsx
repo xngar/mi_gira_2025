@@ -23,25 +23,33 @@ import { ResponseExchange } from "@/app/interfaces/interfaces";
 
 const token = getCookie("Token") as string;
 
+type TypeExchange = {
+  CambioContado:number;
+CambioCredito:number;
+DateUp:string;
+FechaDesde:string;
+FechaHasta:string;
+Id:number;
+UserId:number;
+};
+
 const Menu = () => {
   const [cambio, setCambio] = useState<ResponseExchange | undefined>({
-    Id:0,
-    UserId:0,
-    CambioContado:0,
-    CambioCredito:0,
-    DateUp:'',
-    FechaDesde:'',
-    FechaHasta:''
+    Id: 0,
+    UserId: 0,
+    CambioContado: 0,
+    CambioCredito: 0,
+    DateUp: "",
+    FechaDesde: "",
+    FechaHasta: "",
   });
 
   const exChange = async (token: string) => {
     try {
       const response = await Exchange(token);
-      if(response){
-         setCambio(response)
+      if (response) {
+        setCambio(response);
       }
-      
-      
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +60,6 @@ const Menu = () => {
       exChange(token);
     }
   }, []);
-
 
   return (
     <div className="w-full lg:w-full  bg-[#58167D] flex   p-5 pt-5 items-center h-[65px] sm:pl-20 pl-10 pr-10 sm:pr-20 ">
@@ -138,7 +145,8 @@ const Menu = () => {
 
         <div className="hidden md:flex items-center justify-baseline w-[35%]">
           <p className="text-white text-[12px] ">
-            Viernes, 02 de Mayo del 2025 / contado: {cambio?.CambioContado} - crédito: {cambio?.CambioCredito}
+            Viernes, 02 de Mayo del 2025 / contado: {cambio?.CambioContado} -
+            crédito: {cambio?.CambioCredito}
           </p>
         </div>
       </div>

@@ -1,5 +1,9 @@
 import axios from "axios"
+<<<<<<< HEAD
 import { ApiResponseAuth, Credentials, ResponseExchange } from "../interfaces/interfaces";
+=======
+import { ApiResponse, Credentials, ResponseExchange } from "../interfaces/interfaces";
+>>>>>>> d1c1083bc17743dfa3e65967429a7359ee273a3b
 
 export const Login = async (credentials:Credentials):Promise<ApiResponseAuth> => {
     try{
