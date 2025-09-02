@@ -55,13 +55,13 @@ const Destinos_info = () => {
 
         <h5 className="pt-6 text-sm">Desde</h5>
         <h4 className="text-xl pb-2 font-bold text-[#58167D]">USD $1.500</h4>
-        <p className="pb-2">
+        <div className="pb-2">
           <div className="flex">
             <Sun />
             <span className="pl-2">8 días</span> / <Moon />
             <span className="pl-2">7 noches</span>
           </div>
-        </p>
+        </div>
         <p className="pb-4">Valor por 2 personas</p>
         <button className="bg-yellow-400 p-3 w-[50 %] sm:w-[40%] rounded-full self-end hover:bg-amber-600 transition-all duration-150 cursor-pointer flex justify-center">
           <Link href="/detalle-programa" className="font-semibold">

@@ -20,7 +20,7 @@ import { Plane } from "lucide-react";
 import { Exchange } from "@/app/api/Services";
 import { ResponseExchange } from "@/app/interfaces/interfaces";
 
-const token = getCookie("Token") as string;
+const token = getCookie("Token") as string | undefined;
 
 const Menu = () => {
   const [cambio, setCambio] = useState<ResponseExchange | undefined>({
