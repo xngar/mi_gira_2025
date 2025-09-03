@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Destinos_info from "./Destinos_info";
+import { Programa } from "../types/types"; // Importa el tipo
 
 const Destinos = () => {
-  const [programas, setProgramas] = useState([]);
+  const [programas, setProgramas] = useState<Programa[]>([]);
 
   async function llamarProgramas() {
     const response = await fetch(
@@ -23,7 +24,7 @@ const Destinos = () => {
         ¿Dónde quieres ir con tu curso?
       </h2>
       <div className="grid grid-col-1 lg:grid-cols-3 md:grid-cols-2 gap-10 pl-4 pr-4 lg:pl-28  lg:pr-28 pt-[50px] ">
-        {programas.map((programa: any) => (
+        {programas.map((programa: Programa) => (
           <Destinos_info
             key={programa.Id}
             Titulo={programa.Titulo}
