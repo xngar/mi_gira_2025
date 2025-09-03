@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Destinos_info from "./Destinos_info";
 
 const Destinos = () => {

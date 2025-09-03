@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Detalle_Programa = () => {
@@ -5,7 +6,7 @@ const Detalle_Programa = () => {
     <div>
       {/* Portada del programa| */}
       <div>
-        <img src="ruta/a/la/imagen.jpg" alt="Imagen del programa" />
+        <Image src="ruta/a/la/imagen.jpg" alt="Imagen del programa" />
       </div>
       {/* Información del programa destino */}
       <div>
