@@ -34,6 +34,7 @@ export const Exchange = async (token:string): Promise<ResponseExchange> => {
         }
     });
     const response = await result.data.entities[0] as ResponseExchange;
+    console.log(response,"mensaje");
     return response;
   } catch (error) {
     if (axios.isAxiosError(error)) {
