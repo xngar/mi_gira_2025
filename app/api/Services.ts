@@ -20,18 +20,15 @@ export const Login = async (credentials:Credentials):Promise<ApiResponseAuth> =>
 
 
 
-export const Exchange = async (token:string): Promise<ResponseExchange> => {
+export const Exchange = async (): Promise<ResponseExchange> => {
   try {
     const EqualityFilter = {
       Take: 1,
       Sort:['Id DESC']
     };
    
-    const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/Parameters/Valores`, EqualityFilter, {
-        headers: {
-            Authorization: `Bearer ${token.trim()}`,
-            'Content-Type': 'application/json'
-        }
+    const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/Exchange/GetExchange`, EqualityFilter, {
+       
     });
     const response = await result.data.entities[0] as ResponseExchange;
     console.log(response,"mensaje");
@@ -47,3 +44,10 @@ export const Exchange = async (token:string): Promise<ResponseExchange> => {
   }
 
 };
+
+export const ObtenerCambio = async () => {
+
+  const cambio =  await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+  const resultado = await cambio.json();
+  return resultado; 
+}

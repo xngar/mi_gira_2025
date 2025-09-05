@@ -19,6 +19,7 @@ import { Headset } from "lucide-react";
 import { Plane } from "lucide-react";
 import { Exchange } from "@/app/api/Services";
 import { ResponseExchange } from "@/app/interfaces/interfaces";
+import Link from "next/link";
 
 const token = getCookie("Token") as string | undefined;
 
@@ -33,9 +34,9 @@ const Menu = () => {
     FechaHasta: "",
   });
 
-  const exChange = async (token: string) => {
+  const exChange = async () => {
     try {
-      const response = await Exchange(token);
+      const response = await Exchange();
       if (response) {
         setCambio(response);
       }
@@ -45,9 +46,7 @@ const Menu = () => {
   };
 
   useEffect(() => {
-    if (token) {
-      exChange(token);
-    }
+    exChange();
   }, []);
 
   return (
@@ -93,17 +92,22 @@ const Menu = () => {
 
       {/* fin menu mobile */}
       <div className="lg:w-[30%] md:hidden lg:block hidden">
-        <Image src="/gira.png" width={50} height={50} alt="logo" />
+        <Link href="/">
+          <Image src="/gira.png" width={50} height={50} alt="logo" />
+        </Link>
       </div>
       <div className="flex justify-around gap-[100px] ">
         <div className=" w-[60%] ">
           <ul className="hidden md:flex gap-3.5 justify-around text-white  ">
-            <li className="animacion-botones ">
-              <span>
-                <Plane />
-              </span>
-              Home
-            </li>
+            <Link href="/">
+              {" "}
+              <li className="animacion-botones ">
+                <span>
+                  <Plane />
+                </span>
+                Home
+              </li>
+            </Link>
             <li className="animacion-botones">
               <span>
                 <Luggage />
