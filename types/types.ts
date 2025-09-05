@@ -17,9 +17,20 @@ export interface Programa {
 export interface Itinerario {
   Dia: number;
   Cuerpo: string;
+  Tipo:string;
+  Actividad:string;
+  IdItinerario:number;
 }
 
 export interface Incluye {
+  Texto: string;
+}
+
+export interface Condicioness {
+  Texto: string;
+}
+
+export interface Actividad {
   Texto: string;
 }
 
@@ -35,6 +46,9 @@ export interface ProgramaDetalle {
   Itinerarios: Itinerario[];
   Texto: string;
   Incluyes: Incluye[];
+  Video:string;
+  Condiciones:Condicioness[];
+  Actividades:Actividad[];
 }
 
 export interface ApiResponse {

@@ -8,6 +8,7 @@ import { ProgramaDetalle } from "@/types/types";
 const Detalle_Programa = ({ params }: any) => {
   console.log(params.id, "el id del programa");
   const [programas, setProgramas] = useState<ProgramaDetalle>();
+  console.log(programas?.Video, "el video del programa");
 
   async function llamarProgramasDetalles() {
     const response = await fetch(
@@ -54,14 +55,20 @@ const Detalle_Programa = ({ params }: any) => {
           <div className="mt-2 w-[95%]">
             <h2 className="font-bold">Información del Destino</h2>
             <p className="text-sm">
-              Cayo Santa María es una pequeña isla frente a la costa norte de
-              Cuba. Es conocida por sus playas y los deportes acuáticos. La
-              playa Gaviotas, en el noreste, está rodeada de la frondosa
-              vegetación del Refugio de Fauna de Cayo Santa María, que alberga
-              una gran cantidad de aves. El central complejo Pueblo La Estrella
-              tiene un mercado de artesanía, restaurantes y bares. Hay
-              espectáculos de delfines y lobos de mar en el Acuario Delfinario
-              Cayo Santa María.
+              {programas?.Itinerarios ? (
+                <div>
+                  {programas?.Itinerarios.map((itinerario) => {
+                    if (itinerario.Tipo === "1")
+                      return (
+                        <div key={itinerario.Dia} className="mb-4">
+                          <p>{itinerario.Cuerpo}</p>
+                        </div>
+                      );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}
             </p>
           </div>
         </div>
@@ -83,28 +90,41 @@ const Detalle_Programa = ({ params }: any) => {
       </div>
 
       {/* detalles del programa incluye */}
-      <div className="w-[80%] mx-auto mt-4 justify-center border-2 border-black/10 rounded-md p-4">
-        <h2 className="bg-[#58167D] p-2 rounded-md text-white">
-          El programa Incluye
-        </h2>
-        <ul className="list-none mt-2">
-          {programas?.Incluyes.map((incluye, index) => (
-            <li key={index}>
-              <div className="flex items-center mt-0.5">
-                <Check className="mr-2 text-amber-500 w-4" />
-                {incluye.Texto}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {programas?.Incluyes && programas.Incluyes.length > 0 ? (
+        <div className="w-[80%] mx-auto mt-4 justify-between border-2 border-black/10 rounded-md p-4 flex gap-2">
+          <div>
+            <h2 className="bg-[#58167D] p-2 rounded-md text-white">
+              El programa Incluye
+            </h2>
+            <ul className="list-none mt-2">
+              {programas?.Incluyes.map((incluye, index) => (
+                <li key={index}>
+                  <div className="flex items-center mt-0.5">
+                    <Check className="mr-2 text-amber-500 w-4" />
+                    {incluye.Texto}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div dangerouslySetInnerHTML={{ __html: programas?.Video || "" }} />
+        </div>
+      ) : (
+        ""
+      )}
+
       {/* Itinerario del programa */}
-      {programas?.Itinerarios ? (
+      {programas?.Itinerarios && programas.Itinerarios.length > 0 ? (
         <div className="w-[80%] mx-auto mt-4 justify-center border-2 border-black/10 rounded-md p-4 mb-4">
           <h2 className="bg-[#58167D] p-2 rounded-md text-white">Itinerario</h2>
-          {programas?.Itinerarios.map((itinerario) => (
+          {programas?.Itinerarios.sort(
+            (a, b) => a.IdItinerario - b.IdItinerario
+          ).map((itinerario) => (
             <div key={itinerario.Dia} className="mb-4">
-              <h3 className="font-bold text-lg">Día {itinerario.Dia}</h3>
+              <h3 className="font-bold text-lg">
+                Día {itinerario.Dia} | {itinerario.Actividad}
+              </h3>
               <p>{itinerario.Cuerpo}</p>
             </div>
           ))}
@@ -112,6 +132,39 @@ const Detalle_Programa = ({ params }: any) => {
       ) : (
         ""
       )}
+
+      {/* Condiciones del programa */}
+      {programas?.Condiciones && programas.Condiciones.length > 0 ? (
+        <div className="w-[80%] mx-auto mt-4 justify-center border-2 border-black/10 rounded-md p-4 mb-4">
+          <h2 className="bg-[#58167D] p-2 rounded-md text-white">
+            Condiciones del Programa
+          </h2>
+          {programas?.Condiciones.map((condicion, index) => (
+            <div key={index} className="mt-2 flex">
+              <Check className="mr-2 text-amber-500 w-4" />
+              <p>{condicion.Texto}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+      {/* Actividades del programa */}
+      {programas?.Actividades && programas.Actividades.length > 0 ? (
+        <div className="w-[80%] mx-auto mt-4 justify-center border-2 border-black/10 rounded-md p-4 mb-4">
+          <h2 className="bg-[#58167D] p-2 rounded-md text-white">
+            Observaciones
+          </h2>
+          {programas?.Actividades.map((actividad, index) => (
+            <div key={index} className="mt-2 flex">
+              <Check className="mr-2 text-amber-500 w-4" />
+              <p>{actividad.Texto}</p>
+            </div>
+          ))}
+        </div>
+      ) : programas?.Actividades?.length === 0 ? (
+        ""
+      ) : null}
     </div>
   );
 };
