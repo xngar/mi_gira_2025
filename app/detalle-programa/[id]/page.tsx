@@ -5,7 +5,7 @@ import React from "react";
 import { Hotel, Star, Check } from "lucide-react";
 import { ProgramaDetalle } from "@/types/types";
 
-const Detalle_Programa = ({ params }: any) => {
+const Detalle_Programa = ({ params }: { params: { id: string } }) => {
   console.log(params.id, "el id del programa");
   const [programas, setProgramas] = useState<ProgramaDetalle>();
   console.log(programas?.Video, "el video del programa");
