@@ -6,7 +6,7 @@ export interface ValorPrograma {
 }
 
 export interface Programa {
-  IdPrograma: number;
+  IdPrograma: string;
   Titulo: string;
   Dias: string;
   Noches: string;
