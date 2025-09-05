@@ -22,7 +22,9 @@ const Detalle_Programa = ({ params }: { params: { id: number } }) => {
   }
 
   useEffect(() => {
-    llamarProgramasDetalles();
+    (async () => {
+      await llamarProgramasDetalles();
+    })();
   }, [params.id]);
 
   return (
