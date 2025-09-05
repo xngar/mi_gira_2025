@@ -1,11 +1,11 @@
 import DetallePrograma from "@/components/DetallPrograma";
 import { ProgramaDetalle } from "@/types/types";
 
-interface PageProps {
+export default async function Page({
+  params,
+}: {
   params: { id: string };
-}
-
-export default async function Page({ params }: PageProps) {
+}): Promise<JSX.Element> {
   const response = await fetch(
     `https://services.migira.cl/api/Migira/Programa/${params.id}`,
     { cache: "no-store" } // asegura que no se quede en cache en Vercel
