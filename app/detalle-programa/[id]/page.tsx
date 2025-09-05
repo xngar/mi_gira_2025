@@ -89,6 +89,39 @@ const Detalle_Programa = ({ params }: any) => {
         </div>
       </div>
 
+      {/* Valores Programas */}
+      {programas?.ValoresProgramas && programas.ValoresProgramas.length > 0 ? (
+        <div className="w-[80%] mx-auto mt-4 justify-center border-2 border-black/10 rounded-md p-4 mb-4">
+          <h2 className="bg-[#58167D] p-2 rounded-md text-white">
+            Valores del Programa
+          </h2>
+          <ul className="list-none mt-2">
+            {programas?.ValoresProgramas.map((valor, index) => (
+              <li key={index}>
+                <div className="flex items-center mt-0.5">
+                  <Check className="mr-2 text-amber-500 w-4" />
+                  Hotel: {valor.Hotel}
+                </div>
+                <div className="flex items-center mt-0.5">
+                  <Check className="mr-2 text-amber-500 w-4" />
+                  Habitación: {valor.Habitacion}
+                </div>
+                <div className="flex items-center mt-0.5">
+                  <Check className="mr-2 text-amber-500 w-4" />
+                  Precio: ${valor.Precio}
+                </div>
+                <div className="flex items-center mt-0.5">
+                  <Check className="mr-2 text-amber-500 w-4" />
+                  {valor.Text}
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        ""
+      )}
+
       {/* detalles del programa incluye */}
       {programas?.Incluyes && programas.Incluyes.length > 0 ? (
         <div className="w-[80%] mx-auto mt-4 justify-between border-2 border-black/10 rounded-md p-4 flex gap-2">

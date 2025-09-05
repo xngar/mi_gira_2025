@@ -1,7 +1,8 @@
 export interface ValorPrograma {
-  Hotel?: string;
-  Text?: string;
-  // Agrega otras propiedades de ValoresProgramas si son necesarias
+   Hotel?: string;
+  Habitacion: string;
+  Precio?: string;
+  Text?:string;
 }
 
 export interface Programa {
@@ -49,6 +50,7 @@ export interface ProgramaDetalle {
   Video:string;
   Condiciones:Condicioness[];
   Actividades:Actividad[];
+ 
 }
 
 export interface ApiResponse {
