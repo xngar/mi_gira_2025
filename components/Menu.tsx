@@ -10,7 +10,6 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 
-import { getCookie } from "cookies-next";
 import { AlignJustify } from "lucide-react";
 import { Ship } from "lucide-react";
 import { Sparkles } from "lucide-react";
@@ -20,8 +19,6 @@ import { Plane } from "lucide-react";
 import { Exchange } from "@/app/api/Services";
 import { ResponseExchange } from "@/app/interfaces/interfaces";
 import Link from "next/link";
-
-// const token = getCookie("Token") as string | undefined;
 
 const Menu = () => {
   const [cambio, setCambio] = useState<ResponseExchange | undefined>({
