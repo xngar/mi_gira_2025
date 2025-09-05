@@ -12,7 +12,7 @@ const Detalle_Programa = ({ params }: { params: { id: number } }) => {
 
   async function llamarProgramasDetalles() {
     const response = await fetch(
-      `https://services.migira.cl/api/Migira/Programa/${params.id}`,
+      `https://services.migira.cl/api/Migira/Programa/${params.id.toString()}`,
       { method: "GET" }
     );
     const destacados = await response.json();
