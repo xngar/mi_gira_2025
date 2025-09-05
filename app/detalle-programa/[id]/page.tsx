@@ -23,7 +23,7 @@ const Detalle_Programa = ({ params }: { params: { id: string } }) => {
 
   useEffect(() => {
     llamarProgramasDetalles();
-  });
+  }, [params.id]);
 
   return (
     <div>
