@@ -99,7 +99,7 @@ export default function DetallePrograma({
 
       {/* Incluye */}
       {data?.Incluyes?.length > 0 && (
-        <div className="w-[80%] mx-auto mt-4 border-2 border-black/10 rounded-md p-4 flex gap-2">
+        <div className="w-[80%] mx-auto mt-4 border-2 border-black/10 rounded-md p-4 flex gap-2 justify-between">
           <div>
             <h2 className="bg-[#58167D] p-2 rounded-md text-white">
               El programa Incluye
