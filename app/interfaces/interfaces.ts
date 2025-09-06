@@ -38,7 +38,7 @@ export interface Incluye{
     Texto: string | '';
 };
 export interface Itinerario{
-    IdItinerario: number | undefined;
+    IdItinerario: number| 0;
     IdPrograma: number | 0;
     Dia: number | 0;
     Actividad: string | '';
@@ -112,7 +112,7 @@ export interface ValueProgram{
 
   export interface ApiResponse<T>{
     statusCode:number;
-    value:T;
+    value:{entity:T};
   }
 
   export interface ApiListResponse<T>{

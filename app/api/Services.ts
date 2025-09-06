@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { ApiListResponse, Program, ResponseExchange } from "../interfaces/interfaces";
+import { ApiListResponse, ApiResponse, Program, ResponseExchange } from "../interfaces/interfaces";
 
 
 
@@ -40,4 +40,21 @@ export const getProgramasDestacados = async (): Promise<ApiListResponse<Program[
       throw error;
     }
   }
-}
+};
+
+export const getPrograma = async (id:number) :Promise<ApiResponse<Program>> =>{
+  try{
+    const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Programa/${id}`);
+    const response = await result.data as ApiResponse<Program>;
+    return response;
+  }catch(error){
+     if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data || error.message);
+      throw error; // Lanza el error para que pueda ser manejado por quien llame a esta función
+    } else {
+      console.error('Unexpected error:', error);
+      throw error;
+    }
+  }
+};
+

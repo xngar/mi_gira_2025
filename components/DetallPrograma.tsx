@@ -2,20 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Hotel, Star, Check } from "lucide-react";
-import { ProgramaDetalle } from "@/types/types";
+import { Hotel, Star, Check, MapPin } from "lucide-react";
+import { Program } from "@/app/interfaces/interfaces";
 
 export default function DetallePrograma({
   programa,
 }: {
-  programa: ProgramaDetalle;
+  programa: Program;
 }) {
-  const [data, setData] = useState<ProgramaDetalle>(programa);
+  const [data, setData] = useState<Program>(programa);
 
   useEffect(() => {
+    
     setData(programa);
   }, [programa]);
 
+  console.log('Valor en DATA: ', data);
   return (
     <div>
       {/* Portada */}
@@ -30,13 +32,20 @@ export default function DetallePrograma({
       </div>
 
       <div className="flex w-[80%] mx-auto">
-        {/* Información */}
         <div className="justify-start mx-auto w-[80%] flex flex-col mt-4">
-          <span className="font-bold text-[24px]">{data?.Titulo}</span>
-          <div className="text-3xl flex items-center">
-            <Hotel className="bg-[#58167D] p-1 text-white rounded-md mr-2" />{" "}
-            <span>{data?.Subtitulo ?? "Sin información disponible"}</span>
+          {/* Contenedor para el título con el icono MapPin */}
+          <div className="flex items-center">
+            <MapPin className="font-bold mr-2" />
+            <span className="font-bold text-[24px]">{data?.Titulo}</span>
           </div>
+          
+          {data.Subtitulo && (
+            <div className="text-3xl flex items-center">
+              <Hotel className="bg-[#58167D] p-1 text-white rounded-md mr-2" />
+              <span>{data?.Subtitulo ?? "Sin información disponible"}</span>
+            </div>
+          )}
+        
 
           {/* Info destino */}
           <div className="mt-2 w-[95%]">
