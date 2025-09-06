@@ -21,6 +21,22 @@ import { ResponseExchange } from "@/app/interfaces/interfaces";
 import Link from "next/link";
 
 const Menu = () => {
+  const [fecha, setFecha] = useState("");
+
+  useEffect(() => {
+    const hoy = new Date();
+
+    const opciones: Intl.DateTimeFormatOptions = {
+      weekday: "long", // día de la semana (viernes)
+      day: "2-digit", // día (02)
+      month: "long", // mes (mayo)
+      year: "numeric", // año (2025)
+    };
+
+    const fechaFormateada = hoy.toLocaleDateString("es-ES", opciones);
+    setFecha(fechaFormateada);
+  }, []);
+
   const [cambio, setCambio] = useState<ResponseExchange | undefined>({
     Id: 0,
     UserId: 0,
@@ -135,8 +151,8 @@ const Menu = () => {
 
         <div className="hidden md:flex items-center justify-baseline w-[35%]">
           <p className="text-white text-[12px] ">
-            Viernes, 02 de Mayo del 2025 / contado: {cambio?.CambioContado} -
-            crédito: {cambio?.CambioCredito}
+            {fecha} / contado: {cambio?.CambioContado} - crédito:{" "}
+            {cambio?.CambioCredito}
           </p>
         </div>
       </div>

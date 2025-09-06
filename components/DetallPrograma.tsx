@@ -5,19 +5,14 @@ import Image from "next/image";
 import { Hotel, Star, Check, MapPin } from "lucide-react";
 import { Program } from "@/app/interfaces/interfaces";
 
-export default function DetallePrograma({
-  programa,
-}: {
-  programa: Program;
-}) {
+export default function DetallePrograma({ programa }: { programa: Program }) {
   const [data, setData] = useState<Program>(programa);
 
   useEffect(() => {
-    
     setData(programa);
   }, [programa]);
 
-  console.log('Valor en DATA: ', data);
+  console.log("Valor en DATA: ", data);
   return (
     <div>
       {/* Portada */}
@@ -38,14 +33,13 @@ export default function DetallePrograma({
             <MapPin className="font-bold mr-2" />
             <span className="font-bold text-[24px]">{data?.Titulo}</span>
           </div>
-          
+
           {data.Subtitulo && (
             <div className="text-3xl flex items-center">
               <Hotel className="bg-[#58167D] p-1 text-white rounded-md mr-2" />
               <span>{data?.Subtitulo ?? "Sin información disponible"}</span>
             </div>
           )}
-        
 
           {/* Info destino */}
           <div className="mt-2 w-[95%]">
@@ -77,56 +71,71 @@ export default function DetallePrograma({
       </div>
 
       {/* Valores del programa */}
-    {data?.ValoresProgramas?.length > 0 && (
-  <div className="w-[80%] mx-auto mt-6 mb-8 overflow-hidden rounded-xl shadow-lg">
-    <div className="bg-gradient-to-r bg-[#58167D]  px-6 py-4">
-      <h2 className="text-xl font-semibold text-white">Valores del Programa</h2>
-    </div>
-    
-    <div className="overflow-x-auto">
-      <table className="w-full">
-        <thead>
-          <tr className="bg-purple-50 text-left">
-            <th className="px-6 py-3 font-semibold text-purple-800">Hotel</th>
-            <th className="px-6 py-3 font-semibold text-purple-800">Habitación</th>
-            <th className="px-6 py-3 font-semibold text-purple-800">Precio</th>
-            <th className="px-6 py-3 font-semibold text-purple-800">Detalles</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-200">
-          {data.ValoresProgramas.map((valor, idx) => (
-            <tr key={idx} className="transition-colors hover:bg-purple-50/50">
-              <td className="px-6 py-4">
-                <div className="flex items-center">
-                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
-                  <span className="font-medium">{valor.Hotel}</span>
-                </div>
-              </td>
-              <td className="px-6 py-4">
-                <div className="flex items-center">
-                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
-                  {valor.Habitacion}
-                </div>
-              </td>
-              <td className="px-6 py-4">
-                <div className="flex items-center">
-                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
-                  <span className="font-semibold text-green-600">${valor.Precio}</span>
-                </div>
-              </td>
-              <td className="px-6 py-4">
-                <div className="flex items-center">
-                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
-                  {valor.Text}
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-)}
+      {data?.ValoresProgramas?.length > 0 && (
+        <div className="w-[80%] mx-auto mt-6 mb-8 overflow-hidden rounded-xl shadow-lg">
+          <div className="bg-gradient-to-r bg-[#58167D]  px-6 py-4">
+            <h2 className="text-xl font-semibold text-white">
+              Valores del Programa
+            </h2>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-purple-50 text-left">
+                  <th className="px-6 py-3 font-semibold text-purple-800">
+                    Hotel
+                  </th>
+                  <th className="px-6 py-3 font-semibold text-purple-800">
+                    Habitación
+                  </th>
+                  <th className="px-6 py-3 font-semibold text-purple-800">
+                    Precio
+                  </th>
+                  <th className="px-6 py-3 font-semibold text-purple-800">
+                    Detalles
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {data.ValoresProgramas.map((valor, idx) => (
+                  <tr
+                    key={idx}
+                    className="transition-colors hover:bg-purple-50/50"
+                  >
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                        <span className="font-medium">{valor.Hotel}</span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                        {valor.Habitacion}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                        <span className="font-semibold text-green-600">
+                          ${valor.Precio}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                        {valor.Text}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* Incluye */}
       {data?.Incluyes?.length > 0 && (
@@ -151,16 +160,16 @@ export default function DetallePrograma({
       {data?.Itinerarios?.length > 1 && (
         <div className="w-[80%] mx-auto mt-4 border-2 border-black/10 rounded-md p-4 mb-4">
           <h2 className="bg-[#58167D] p-2 rounded-md text-white">Itinerario</h2>
-          {data.Itinerarios.filter(x => x.Tipo != '1').sort((a, b) => a.IdItinerario - b.IdItinerario).map(
-            (it) => (
+          {data.Itinerarios.filter((x) => x.Tipo != "1")
+            .sort((a, b) => a.IdItinerario - b.IdItinerario)
+            .map((it) => (
               <div key={it.Dia} className="mb-4">
                 <h3 className="font-bold text-lg">
                   Día {it.Dia} | {it.Actividad}
                 </h3>
                 <p>{it.Cuerpo}</p>
               </div>
-            )
-          )}
+            ))}
         </div>
       )}
 
