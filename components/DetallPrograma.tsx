@@ -68,34 +68,56 @@ export default function DetallePrograma({
       </div>
 
       {/* Valores del programa */}
-      {data?.ValoresProgramas?.length > 0 && (
-        <div className="w-[80%] mx-auto mt-4 border-2 border-black/10 rounded-md p-4 mb-4">
-          <h2 className="bg-[#58167D] p-2 rounded-md text-white">
-            Valores del Programa
-          </h2>
-          <ul className="list-none mt-2">
-            {data.ValoresProgramas.map((valor, idx) => (
-              <li key={idx} className="mb-2">
+    {data?.ValoresProgramas?.length > 0 && (
+  <div className="w-[80%] mx-auto mt-6 mb-8 overflow-hidden rounded-xl shadow-lg">
+    <div className="bg-gradient-to-r bg-[#58167D]  px-6 py-4">
+      <h2 className="text-xl font-semibold text-white">Valores del Programa</h2>
+    </div>
+    
+    <div className="overflow-x-auto">
+      <table className="w-full">
+        <thead>
+          <tr className="bg-purple-50 text-left">
+            <th className="px-6 py-3 font-semibold text-purple-800">Hotel</th>
+            <th className="px-6 py-3 font-semibold text-purple-800">Habitación</th>
+            <th className="px-6 py-3 font-semibold text-purple-800">Precio</th>
+            <th className="px-6 py-3 font-semibold text-purple-800">Detalles</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+          {data.ValoresProgramas.map((valor, idx) => (
+            <tr key={idx} className="transition-colors hover:bg-purple-50/50">
+              <td className="px-6 py-4">
                 <div className="flex items-center">
-                  <Check className="mr-2 text-amber-500 w-4" /> Hotel:{" "}
-                  {valor.Hotel}
+                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                  <span className="font-medium">{valor.Hotel}</span>
                 </div>
+              </td>
+              <td className="px-6 py-4">
                 <div className="flex items-center">
-                  <Check className="mr-2 text-amber-500 w-4" /> Habitación:{" "}
+                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
                   {valor.Habitacion}
                 </div>
+              </td>
+              <td className="px-6 py-4">
                 <div className="flex items-center">
-                  <Check className="mr-2 text-amber-500 w-4" /> Precio: $
-                  {valor.Precio}
+                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                  <span className="font-semibold text-green-600">${valor.Precio}</span>
                 </div>
+              </td>
+              <td className="px-6 py-4">
                 <div className="flex items-center">
-                  <Check className="mr-2 text-amber-500 w-4" /> {valor.Text}
+                  <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
+                  {valor.Text}
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
 
       {/* Incluye */}
       {data?.Incluyes?.length > 0 && (
@@ -117,10 +139,10 @@ export default function DetallePrograma({
       )}
 
       {/* Itinerario */}
-      {data?.Itinerarios?.length > 0 && (
+      {data?.Itinerarios?.length > 1 && (
         <div className="w-[80%] mx-auto mt-4 border-2 border-black/10 rounded-md p-4 mb-4">
           <h2 className="bg-[#58167D] p-2 rounded-md text-white">Itinerario</h2>
-          {data.Itinerarios.sort((a, b) => a.IdItinerario - b.IdItinerario).map(
+          {data.Itinerarios.filter(x => x.Tipo != '1').sort((a, b) => a.IdItinerario - b.IdItinerario).map(
             (it) => (
               <div key={it.Dia} className="mb-4">
                 <h3 className="font-bold text-lg">

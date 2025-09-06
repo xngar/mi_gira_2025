@@ -11,7 +11,6 @@ const Destinos = () => {
     );
     const destacados = await response.json();
     setProgramas(destacados.value.entities);
-    console.log(destacados.value.entities[0].Titulo);
   }
 
   useEffect(() => {

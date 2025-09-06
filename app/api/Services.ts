@@ -31,7 +31,6 @@ export const Exchange = async (): Promise<ResponseExchange> => {
        
     });
     const response = await result.data.entities[0] as ResponseExchange;
-    console.log(response,"mensaje");
     return response;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -44,10 +43,3 @@ export const Exchange = async (): Promise<ResponseExchange> => {
   }
 
 };
-
-export const ObtenerCambio = async () => {
-
-  const cambio =  await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-  const resultado = await cambio.json();
-  return resultado; 
-}

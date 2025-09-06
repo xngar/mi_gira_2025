@@ -1,14 +1,9 @@
-"use client";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
-import { Credentials } from "./interfaces/interfaces";
-import { Login } from "./api/Services";
-import { setCookie, getCookie } from "cookies-next";
-import { useEffect } from "react";
 
-const token = getCookie("Token") as string;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,27 +25,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const logeo = async () => {
-    const _credencial: Credentials = {
-      Username: `${process.env.NEXT_PUBLIC_API_USERNAME}`,
-      Password: `${process.env.NEXT_PUBLIC_API_PASSWORD}`,
-    };
-
-    const response = await Login(_credencial);
-    if (response.statusCode === 200) {
-      setCookie("Token", response.value);
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (!token) {
-        // Redirigir a la página de inicio de sesión
-        logeo();
-      }
-    }
-  }, []);
-
+ 
   return (
     <html lang="en">
       <body
