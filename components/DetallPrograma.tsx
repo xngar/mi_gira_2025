@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Hotel, Star, Check, MapPin } from "lucide-react";
-import { Program } from "@/app/interfaces/interfaces";
+import { Program, ResponseExchange } from "@/app/interfaces/interfaces";
 import { formatNumber } from "@/utils/number-formatter";
+import { Exchange } from "@/app/api/Services";
 
 export default function DetallePrograma({ programa }: { programa: Program }) {
   const [data, setData] = useState<Program>(programa);
@@ -12,6 +13,36 @@ export default function DetallePrograma({ programa }: { programa: Program }) {
   useEffect(() => {
     setData(programa);
   }, [programa]);
+
+  // exchange cambio function
+  const [cambio, setCambio] = useState<ResponseExchange | undefined>({
+    Id: 0,
+    UserId: 0,
+    CambioContado: 0,
+    CambioCredito: 0,
+    DateUp: "",
+    FechaDesde: "",
+    FechaHasta: "",
+  });
+
+  const exChange = async () => {
+    try {
+      const response = await Exchange();
+      if (response) {
+        setCambio(response);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    exChange();
+  }, []);
+
+  // Se convierte el valor de cambio a número, reemplazando la coma por un punto si es necesario.
+  const cambioContadoValue =
+    Number(String(cambio?.CambioContado || "0").replace(",", ".")) || 0;
 
   return (
     <div>
@@ -64,8 +95,11 @@ export default function DetallePrograma({ programa }: { programa: Program }) {
           </span>
           <span>Precio desde:</span>
           <span className="text-3xl font-bold text-[#58167D]">
-            ${formatNumber(data?.Precio || 0)}
+            USD {formatNumber(data?.Precio || 0)}
           </span>
+          <small className="text-[14px]">
+            ${formatNumber((data?.Precio || 0) * cambioContadoValue)}
+          </small>
           <span>Incluye impuestos, tasas y cargos</span>
         </div>
       </div>
@@ -119,7 +153,7 @@ export default function DetallePrograma({ programa }: { programa: Program }) {
                       <div className="flex items-center">
                         <Check className="mr-2 text-purple-600 w-4 flex-shrink-0" />
                         <span className="font-semibold text-green-600">
-                          ${formatNumber(valor?.Precio || 0)}
+                          USD {formatNumber(valor?.Precio || 0)}
                         </span>
                       </div>
                     </td>

@@ -153,7 +153,7 @@ const Menu = () => {
 
         <div className="hidden md:flex items-center justify-baseline w-[35%]">
           <p className="text-white text-[12px] ">
-            {fecha} / contado: {cambio?.CambioContado} - crédito:{" "}
+            {fecha} <br /> contado: {cambio?.CambioContado} - crédito:{" "}
             {cambio?.CambioCredito}
           </p>
         </div>

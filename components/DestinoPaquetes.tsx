@@ -17,7 +17,7 @@ const DestinoPaquetes = ({ areas }: { areas: Area }) => {
         <div className="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-purple-700 to-transparent rounded-2xl z-10" />
 
         <div className="absolute inset-0 flex items-end pb-8 justify-center z-20">
-          <h2 className="text-white font-bold text-2xl">
+          <h2 className="text-white font-bold text-2xl text-center">
             <span className="text-yellow-400">{areas.Nombre}</span>
           </h2>
         </div>
