@@ -58,3 +58,21 @@ export const getPrograma = async (id:number) :Promise<ApiResponse<Program>> =>{
   }
 };
 
+
+// consumir areas
+
+export const getAreas = async () :Promise<ApiListResponse<string[]>> =>{
+  try{
+    const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Areas`);
+    const response = await result.data as ApiListResponse<string[]>;
+    return response;
+  }catch(error){
+     if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data || error.message);
+      throw error; // Lanza el error para que pueda ser manejado por quien llame a esta función
+    } else {
+      console.error('Unexpected error:', error);
+      throw error;
+    }
+  }
+};

@@ -121,12 +121,14 @@ const Menu = () => {
                 Home
               </li>
             </Link>
-            <li className="animacion-botones">
-              <span>
-                <Luggage />
-              </span>
-              Paquetes
-            </li>
+            <Link href="/paquetes">
+              <li className="animacion-botones">
+                <span>
+                  <Luggage />
+                </span>
+                Paquetes
+              </li>
+            </Link>
             <li className="animacion-botones">
               <span>
                 <Sparkles />

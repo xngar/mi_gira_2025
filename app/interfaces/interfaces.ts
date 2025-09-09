@@ -127,3 +127,24 @@ export interface ApiResponseAuth{
   export interface ApiResponseExchange<T>{
 	data:T;
   }
+
+
+
+  export interface ListaAreaDestinos{
+    Id: number;
+    IdArea: number;
+    IdDestino: number;
+};
+  
+  export interface Area{
+    IdArea: number | undefined;
+    ListaDestinos: ListaAreaDestinos[] | [];
+    Pais: string | 0;
+    CodigoPais?: string | '';
+    Nombre: string;
+    Activo: boolean | false;
+    Att:boolean | false;
+    UrlImage: string | '';
+    IdImageCloudinary: string | '';
+};
+
