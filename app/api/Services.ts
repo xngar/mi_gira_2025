@@ -12,7 +12,7 @@ export const Exchange = async (): Promise<ResponseExchange> => {
     };
    
     const result = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/Exchange/GetExchange`, EqualityFilter, {});
-    const response = await result.data.entities[0] as ResponseExchange;
+    const response = result.data.entities[0] as ResponseExchange;
     return response;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -29,7 +29,7 @@ export const Exchange = async (): Promise<ResponseExchange> => {
 export const getProgramasDestacados = async (): Promise<ApiListResponse<Program[]>> => {
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/ProgramasDestacados`);
-    const response = await result.data as ApiListResponse<Program[]>;
+    const response = result.data as ApiListResponse<Program[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
@@ -45,7 +45,7 @@ export const getProgramasDestacados = async (): Promise<ApiListResponse<Program[
 export const getPrograma = async (id:number) :Promise<ApiResponse<Program>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Programa/${id}`);
-    const response = await result.data as ApiResponse<Program>;
+    const response = result.data as ApiResponse<Program>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
@@ -64,7 +64,7 @@ export const getPrograma = async (id:number) :Promise<ApiResponse<Program>> =>{
 export const getAreas = async () :Promise<ApiListResponse<Area[]>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Areas`);
-    const response = await result.data as ApiListResponse<Area[]>;
+    const response = result.data as ApiListResponse<Area[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
@@ -82,7 +82,7 @@ export const getAreas = async () :Promise<ApiListResponse<Area[]>> =>{
 export const getDestinos = async (id:number) :Promise<ApiListResponse<Destiny[]>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Destino/${id}`);
-    const response = await result.data as ApiListResponse<Destiny[]>;
+    const response = result.data as ApiListResponse<Destiny[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
@@ -99,7 +99,7 @@ export const getDestinos = async (id:number) :Promise<ApiListResponse<Destiny[]>
 export const getProgramaDetalle = async (idPrograma:number,idDetalle:number) :Promise<ApiResponses<Program[]>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Programas/${idPrograma}/${idDetalle}`);
-    const response = await result.data as ApiResponses<Program[]>;
+    const response = result.data as ApiResponses<Program[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
@@ -115,7 +115,7 @@ export const getProgramaDetalle = async (idPrograma:number,idDetalle:number) :Pr
 export const getProgramaListadoDetalle = async (idPrograma:number,idDetalle:number) :Promise<ApiResponses<Program[]>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Programas/${idPrograma}/${idDetalle}`);
-    const response = await result.data as ApiResponses<Program[]>;
+    const response = result.data as ApiResponses<Program[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {
