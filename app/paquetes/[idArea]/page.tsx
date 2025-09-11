@@ -4,7 +4,11 @@ import DestinoPaquetesListado from "@/components/DestinoPaquetesListado";
 import Image from "next/image";
 import React from "react";
 
-const page = async ({ params }: { params: { idArea: string } }) => {
+type Props = {
+  params: { idArea: string };
+};
+
+const page = async ({ params }: Props) => {
   const idArea = Number(params.idArea);
   const [destinosResponse, areasResponse] = await Promise.all([
     getDestinos(idArea),
