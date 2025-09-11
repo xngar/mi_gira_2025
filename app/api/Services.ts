@@ -1,6 +1,6 @@
 import axios from "axios"
 
-import { ApiListResponse, ApiResponse, Program, ResponseExchange } from "../interfaces/interfaces";
+import { ApiListResponse, ApiResponses,ApiResponse, Area, Destiny, Program, ResponseExchange } from "../interfaces/interfaces";
 
 
 
@@ -61,10 +61,45 @@ export const getPrograma = async (id:number) :Promise<ApiResponse<Program>> =>{
 
 // consumir areas
 
-export const getAreas = async () :Promise<ApiListResponse<string[]>> =>{
+export const getAreas = async () :Promise<ApiListResponse<Area[]>> =>{
   try{
     const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Areas`);
-    const response = await result.data as ApiListResponse<string[]>;
+    const response = await result.data as ApiListResponse<Area[]>;
+    return response;
+  }catch(error){
+     if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data || error.message);
+      throw error; // Lanza el error para que pueda ser manejado por quien llame a esta función
+    } else {
+      console.error('Unexpected error:', error);
+      throw error;
+    }
+  }
+};
+
+// consumir destinos 
+
+export const getDestinos = async (id:number) :Promise<ApiListResponse<Destiny[]>> =>{
+  try{
+    const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Destino/${id}`);
+    const response = await result.data as ApiListResponse<Destiny[]>;
+    return response;
+  }catch(error){
+     if (axios.isAxiosError(error)) {
+      console.error('Axios error:', error.response?.data || error.message);
+      throw error; // Lanza el error para que pueda ser manejado por quien llame a esta función
+    } else {
+      console.error('Unexpected error:', error);
+      throw error;
+    }
+  }
+};
+
+
+export const getProgramaDetalle = async (idPrograma:number,idDetalle:number) :Promise<ApiResponses<Program[]>> =>{
+  try{
+    const result = await axios.get(`${process.env.NEXT_PUBLIC_API_MIGIRA}/api/Migira/Programas/${idPrograma}/${idDetalle}`);
+    const response = await result.data as ApiResponses<Program[]>;
     return response;
   }catch(error){
      if (axios.isAxiosError(error)) {

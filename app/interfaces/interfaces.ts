@@ -115,6 +115,11 @@ export interface ValueProgram{
     value:{entity:T};
   }
 
+  export interface ApiResponses<T>{
+    statusCode:number;
+    value:{entities:T};
+  }
+
   export interface ApiListResponse<T>{
     statusCode:number;
     value:{entities:T};

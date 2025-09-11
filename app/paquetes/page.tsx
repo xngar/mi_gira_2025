@@ -19,7 +19,7 @@ const Paquetes = async () => {
       {/* titulos */}
       <div className="w-[100%] text-center mt-6 px-12">
         <h1 className="text-3xl font-bold text-purple-800">
-          Descubre nuestros Paquetes de Viaje ✈️
+          Descubre nuestros Paquetes de Viaje
         </h1>
         <p className="mt-2 text-gray-700 text-lg">
           Vive experiencias inolvidables con nuestros destinos exclusivos. Ya

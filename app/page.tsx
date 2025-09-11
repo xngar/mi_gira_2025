@@ -7,7 +7,6 @@ import Slider from "@/components/Slider";
 import Video from "@/components/Video";
 
 export default function Home() {
- 
   return (
     <div className="">
       {/* <Menu /> */}
