@@ -13,7 +13,7 @@ const Beneficios: React.FC = () => {
       <Beneficio_info
         icono={<ThumbsUp size={100} color="#58167D" aria-label="garantia" />}
         titulo="Garantía"
-        descripcion="Contamos con sello de calidad turística y somos parte de la Asociación Chilena de Turismo."
+        descripcion="Contamos con sello de calidad turística y somos parte de la Asociación Chilena de Turismo!."
       />
       <Beneficio_info
         icono={
