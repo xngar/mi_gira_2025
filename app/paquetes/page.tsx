@@ -2,6 +2,7 @@ import DestinoPaquetes from "@/components/DestinoPaquetes";
 
 import Image from "next/image";
 import React from "react";
+import { Area } from "@/app/interfaces/interfaces";
 import { getAreas } from "../api/Services";
 import Link from "next/link";
 
@@ -31,7 +32,7 @@ const Paquetes = async () => {
       {/* paquetes */}
 
       <div className="flex flex-wrap gap-6 mt-6 justify-center pb-5">
-        {areas.map((area: any) => (
+        {areas.map((area: Area) => (
           <Link href={`/paquetes/${area.IdArea}`} key={area.IdArea}>
             <DestinoPaquetes areas={area} key={area.IdArea} />
           </Link>

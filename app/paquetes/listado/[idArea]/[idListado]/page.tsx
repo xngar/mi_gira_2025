@@ -4,7 +4,7 @@ import { Program } from "@/app/interfaces/interfaces";
 import Destinos_info from "@/components/Destinos_info";
 import React, { useEffect, useState } from "react";
 
-const page = (props: { params: { idArea: string; idListado: string } }) => {
+const Page = (props: { params: { idArea: string; idListado: string } }) => {
   const [programas, setProgramas] = useState<Program[]>([]);
 
   const llamarProgramas = async () => {
@@ -46,4 +46,4 @@ const page = (props: { params: { idArea: string; idListado: string } }) => {
   );
 };
 
-export default page;
+export default Page;

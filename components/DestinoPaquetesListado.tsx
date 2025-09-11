@@ -1,4 +1,4 @@
-import { Destiny, Program } from "@/app/interfaces/interfaces";
+import { Destiny } from "@/app/interfaces/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

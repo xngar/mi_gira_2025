@@ -1,5 +1,5 @@
 import { getAreas, getDestinos } from "@/app/api/Services";
-import { Destiny } from "@/app/interfaces/interfaces";
+import { Area, Destiny } from "@/app/interfaces/interfaces";
 import DestinoPaquetesListado from "@/components/DestinoPaquetesListado";
 import Image from "next/image";
 import React from "react";
@@ -13,7 +13,7 @@ const page = async ({ params }: { params: { idArea: string } }) => {
 
   const destinos: Destiny[] = destinosResponse.value.entities;
   const area = areasResponse.value.entities.find(
-    (a: any) => a.IdArea === idArea
+    (a: Area) => a.IdArea === idArea
   );
   const areaName = area ? area.Nombre : "Nuestros Destinos";
 

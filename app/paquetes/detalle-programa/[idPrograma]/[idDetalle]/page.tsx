@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {
-  getDestinos,
-  getPrograma,
-  getProgramaDetalle,
-} from "@/app/api/Services";
+import { getProgramaDetalle } from "@/app/api/Services";
 import { Program } from "@/app/interfaces/interfaces";
 import DetallePrograma from "@/components/DetallPrograma";
 
