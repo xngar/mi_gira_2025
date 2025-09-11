@@ -1,14 +1,18 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Destinos_info from "./Destinos_info";
-import { getProgramasDestacados } from "@/app/api/Services";
+import { getProgramaListadoDetalle } from "@/app/api/Services";
 import { Program } from "@/app/interfaces/interfaces";
+import Destinos_info from "@/components/Destinos_info";
+import React, { useEffect, useState } from "react";
 
-const Destinos = () => {
+const page = (props: { params: { idArea: string; idListado: string } }) => {
   const [programas, setProgramas] = useState<Program[]>([]);
 
   const llamarProgramas = async () => {
-    const response = await getProgramasDestacados();
+    const response = await getProgramaListadoDetalle(
+      Number(props.params.idArea),
+      Number(props.params.idListado)
+    );
+
     if (response.statusCode === 200) {
       setProgramas(response.value.entities);
     }
@@ -42,4 +46,4 @@ const Destinos = () => {
   );
 };
 
-export default Destinos;
+export default page;
